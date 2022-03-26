@@ -22,7 +22,8 @@ or
 pnpm add -D @linteng/react-dynamic-router-loader
 ```
 
-然后再 `webpack` 配置中增加loader. For example:
+然后在 `webpack` 配置中增加loader
+🌰
 
 **webpack.config.js**
 
@@ -46,23 +47,25 @@ module.exports = {
 };
 ```
 
-给项目工程创建一份router json的配置. For example:
+给项目工程创建一份router json的配置
+🌰
 
 **router.json**
 ```json
+// ignore create react router object
+// replace the url from [key] to [value]
 {
-  // ignore create react router object
   "ignore": [
     "/welcome"
   ],
-  // replace the url from [key] to [value]
   "replace": {
-    "/application/resource": "/application/resource/:id?",
-    "/application/app-list/edit": "/application/app-list/edit/:id?"
+    "/page1": "/page1/:id?",
+    "/page2": "/page2/edit/:id?"
   }
 }
 ```
-根据router json 再引入router对象生成的依赖来生成最终的react router. For example:
+根据router.json 再引入routerHelper来生成最终的react router
+🌰
 
 **router.tsx**
 ```js
@@ -73,20 +76,21 @@ import { createBrowserHistory } from 'history';
 
 const history = createBrowserHistory();
 const config = {
+  
   /**
-   * router filter 
-   * @param {*} props   // props mounted on the router
+   * router过滤函数
+   * @param {*} props   // 挂载在router上的props
    * @param {*} routerPath    // router path
-   * @return {*} boolean  // whether to interrupt router render
+   * @return {*} boolean  // 是否拦截掉路由
    */
   filter(props: any, routerPath: any) {
     if (routerPath === '/filter') {
-      return false;
+      return false; // 渲染为error页面
     }
-    return true;  // render error page
+    return true;
   },
   error: {
-    404: '/error/404'   // which page render 404
+    404: '/error/404'   // 配置404页面的具体指向路径
   }
 };
 const DynamicRouter = routerHelper(pageRouter, config);
@@ -101,59 +105,33 @@ export default function router() {
 }
 ```
 
-路由自动重定向. For example:
+<br/>
 
+路由自动重定向
+🌰
 **_config.ts_**
 ```js
-// 🌰说明: 如果遇到路由redirects，则重定向到/error/redirect-page
+// 说明: 如果遇到路由redirects，则重定向到/error/redirect-page
 // 应用场景：可用来作路由鉴权，例如在home页判断是否有登录态来决定是否跳转login
 export default {
   redirects: [{ from: "/redirects", to: "/error/redirect-page" }]
 };
 ```
+<br/>
 
-路由参数传递. For example:
+路由参数传递
+🌰
 **_config.ts_**
 ```js
-// 🌰说明: 可以同级目录的index.tsx与layout.tsx的props.pageConfig中获取到传递的参数
+// 说明: 可以同级目录的index.tsx与layout.tsx的props.pageConfig中获取到传递的参数
 // 应用场景：例如需要往页面主体或布局注入一些静态配置时可用
 export default {
   someConfig: [{ detail: "blabla" }]
 };
 ```
+<br/>
 
-参考example，大致的page目录结构:
-src
-├── index.tsx
-├── pages
-│   ├── components
-│   ├── error
-│   │   ├── 404
-│   │   │   ├── components
-│   │   │   ├── index.tsx
-│   │   │   └── layout.tsx
-│   ├── index.less
-│   ├── index.tsx
-│   ├── layout.tsx
-│   ├── page1
-│   │   ├── _config.ts
-│   │   ├── components
-│   │   │   └── page1-comp.tsx
-│   │   ├── index.tsx
-│   │   └── layout.tsx
-│   ├── page2
-│   │   ├── components
-│   │   ├── index.tsx
-│   │   ├── layout.tsx
-│   │   └── page2-1
-│   │       ├── components
-│   │       ├── index.tsx
-│   │       └── layout.tsx
-├── router
-│   ├── config.json
-│   └── index.tsx
-
-运行example
+运行🌰example工程
 
 ```console
 cd example
