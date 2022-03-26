@@ -152,3 +152,11 @@ src
 ├── router
 │   ├── config.json
 │   └── index.tsx
+
+运行example
+
+```console
+cd example
+pnpm i
+pnpm dev
+```

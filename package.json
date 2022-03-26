@@ -1,8 +1,8 @@
 {
   "name": "@linteng/dynamic-router",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "一个自动生成约定式路由的预处理器",
-  "main": "react-loader.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lcoln/react-dynamic-router-loader.git"
@@ -24,5 +24,11 @@
   },
   "engines": {
     "node": ">= 10.13.0"
-  }
+  },
+  "typings": "types/index.d.ts",
+  "files": [
+    "types",
+    "example",
+    "dist"
+  ]
 }
