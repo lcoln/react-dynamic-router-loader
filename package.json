@@ -1,6 +1,6 @@
 {
   "name": "@linteng/dynamic-router",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "一个自动生成约定式路由的预处理器",
   "main": "dist/index.js",
   "repository": {
