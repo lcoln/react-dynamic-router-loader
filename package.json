@@ -26,6 +26,14 @@
     "node": ">= 10.13.0"
   },
   "typings": "types/index.d.ts",
+  "keywords": [
+    "react",
+    "react-router",
+    "react-router-loader",
+    "smart-router-loader",
+    "react-dynamic-router-loader",
+    "dynamic-router"
+  ],
   "files": [
     "types",
     "example",
