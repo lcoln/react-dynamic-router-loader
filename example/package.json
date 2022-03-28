@@ -32,7 +32,6 @@
     "@ant-design/icons": "^4.7.0",
     "@linteng/airui": "0.0.5",
     "@linteng/dynamic-router": "0.0.5",
-    "antd": "^4.19.2",
     "history": "4.10.1",
     "less-loader": "7.1.0",
     "react": "^17.0.2",
