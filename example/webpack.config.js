@@ -4,7 +4,7 @@
  * @Autor: linteng
  * @Date: 2022-03-13 19:17:11
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-03-26 19:41:48
+ * @LastEditTime: 2022-03-29 15:42:57
  */
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
@@ -41,9 +41,9 @@ module.exports = {
       type: 'javascript/auto',
       resourceQuery: /dynamicRouter/,
       use: {
-        loader: '@linteng/dynamic-router/react-loader',
+        loader: '@linteng/dynamic-router',
         options: {
-          pagesPath: path.resolve(process.cwd(), 'src', 'pages'),
+          dir: path.resolve(process.cwd(), 'src', 'pages'),
         },
       },
     }, 
