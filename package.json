@@ -1,6 +1,6 @@
 {
   "name": "@linteng/dynamic-router",
-  "version": "0.1.8",
+  "version": "0.2.1",
   "description": "一个自动生成约定式路由的预处理器",
   "main": "lib",
   "module": "es",
@@ -18,10 +18,10 @@
     "loader-utils": "2.0.0"
   },
   "peerDependencies": {
-    "webpack": "^4.0.0 || ^5.0.0",
     "react": ">=17.0.1",
     "react-dom": ">=17.0.1",
-    "react-router-dom": ">=5.2.0"
+    "react-router-dom": ">=5.2.0",
+    "webpack": "^4.0.0 || ^5.0.0"
   },
   "engines": {
     "node": ">= 10.13.0"
